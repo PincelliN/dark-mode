@@ -14,3 +14,21 @@
   align-items: center;
   gap: 20px;
 }
+
+.dark {
+  background: #232526;
+  background: linear-gradient(
+    0deg,
+    rgba(35, 37, 38, 1) 0%,
+    rgba(65, 67, 69, 1) 100%
+  );
+}
+.light {
+  background: #bbd2c5;
+  background: linear-gradient(
+    230deg,
+    rgba(187, 210, 197, 1) 0%,
+    rgba(83, 105, 118, 1) 35%,
+    rgba(41, 46, 73, 1) 100%
+  );
+}
