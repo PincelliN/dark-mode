@@ -1,3 +1,5 @@
+import { Mode } from "../types/mode";
+
 type ElementType = {
   title: string;
   description: string;
@@ -31,21 +33,36 @@ const element: ElementType[] = [
   },
 ];
 
-export default function Cards() {
+type cardsProps = {
+  mode: Mode;
+};
+
+export default function Cards({ mode }: cardsProps) {
   return (
     <>
-      <div className="container">
+      <div className="container ">
         <div className="row d-flex justify-content-center ">
-          {element.map((el) => (
-            <>
-              <div className="card  col-5  m-1 ">
-                <div className="card-body d-flex flex-column justify-content-start align-items-center">
-                  <h6 className="card-title text-uppercase">{el.title}</h6>
-                  <hr className="border border-primary border-3 w-25" />
-                  <p className="card-text">{el.description}</p>
-                </div>
+          {element.map((el, index) => (
+            <div
+              key={index}
+              className={
+                mode === Mode.dark
+                  ? "card  col-5  m-1 bg-light bg-opacity-10 shadow text-white"
+                  : "card  col-5  m-1 bg-light bg-opacity-10 shadow "
+              }
+            >
+              <div className="card-body d-flex flex-column justify-content-start align-items-center">
+                <h6 className="card-title text-uppercase">{el.title}</h6>
+                <hr
+                  className={
+                    mode === Mode.dark
+                      ? "border border-danger border-3 w-25"
+                      : "border border-primary border-3 w-25"
+                  }
+                />
+                <p className="card-text">{el.description}</p>
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
